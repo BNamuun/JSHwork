@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleArray1</title>
+</head>
+<body>
+    <script>
+                    // Simple Array 1
+            let itCompanies = ['Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon']
+
+            for( let i = 0; i < itCompanies.length; i++){
+                console.log(itCompanies[i]);
+                console.log(`${itCompanies[i]}'s length is : ${itCompanies[i].length}`);
+                console.log(itCompanies[i].toUpperCase());
+            }
+            console.log(itCompanies[0]);
+            console.log(itCompanies[Math.floor(itCompanies.length/2)]);
+            console.log(itCompanies[itCompanies.length - 1]);
+
+
+            let Sentences = ''
+            for( let j = 0; j < itCompanies.length; j++){
+                Sentences += itCompanies[j] + ', '
+            }
+            console.log(`${Sentences} зэрэг мэдээллийн технологийн томоохон компаниуд`);
+
+    </script>
+</body>
+</html>

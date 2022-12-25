@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davhardsan Utga</title>
+</head>
+<body>
+    <script>
+            // davhardsan utga 
+            let arr = [4, 2, 34, 4, 1, 12, 1, 4];
+            let array = []
+            for( let i = 0; i < arr.length; i++){
+                for( let j = i + 1; j < arr.length; j++){
+                    if(arr[i] === arr[j]){
+                            let dublicated = false;
+
+                            for(let k = 0; k < array.length; k++){
+                                if(arr[i] === array[k]){
+                                    dublicated = true;
+                                }
+                            }
+                            if(!dublicated){
+                                array.push(arr[i])
+                            }
+                        }
+                    
+                }
+                
+            }
+            console.log(array);
+    </script>
+</body>
+</html>

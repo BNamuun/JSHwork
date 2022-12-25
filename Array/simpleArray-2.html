@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleArray2</title>
+</head>
+<body>
+    <script>
+    //         Simple Array 2
+    // Array - ын хувьсагчийг itCompanies гэж зарлаж, Facebook, Google, Microsoft, Apple, IBM, Oracle, Amazon зэрэг анхны утгыг оруулна уу.
+    // Array - аас эхний 3 компанийг хайчилж ав
+    // Array - аас сүүлийн 3 компанийг хайчилж ав
+    // Мэдээллийн технологийн дунд компани эсвэл компаниудыг arrey - аас хайчилж ав
+    // Эхний мэдээллийн технологийн компанийг array - аас хас
+    // Сүүлийн мэдээллийн технологийн компанийг array - аас хас
+
+    let itCompanies = ['Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon']
+
+    let firstTh = itCompanies.slice(0,3)
+    console.log(firstTh);
+    console.log(itCompanies.slice(4,itCompanies.length));
+    console.log(itCompanies[3]);
+    itCompanies.shift();
+    console.log(itCompanies);
+    itCompanies.pop();
+    console.log(itCompanies);
+    </script>
+</body>
+</html>

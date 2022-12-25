@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip</title>
+</head>
+<body>
+    <h1>Tip</h1>
+    <script>
+        // Gonchigsumlaa, нийт төлөх төлбөр  олдог функц
+function TotalFee(x){
+    // let x = Number(prompt("хоолны дүнг оруулна уу"))
+    let nemegdel = 0;
+    percent_15 = 15;
+    percent_20 = 20;
+    let Total  = 0;
+    if(x>=5000 && x<=30000){
+        nemegdel = (x * percent_15)/100;
+        Total = x + nemegdel;
+        console.log(`Tаны төлөх төлбөр ${Total}`);
+    }
+    else if(x > 30000){
+        nemegdel = (x * percent_20)/100;
+        console.log(`Tаны төлөх төлбөр ${x + nemegdel}`);
+    
+    }
+    else{
+        console.log(`Таны төлөх төлбөр ${x}`);
+    }
+}
+TotalFee(100000); 
+
+// Гончигсумлаа, нэмэгдэл төлбөр олдог функц
+function addFee(y){
+    let nemegdel = 0;
+    percent_15 = 15;
+    percent_20 = 20;
+    let Total  = 0;
+    if(y>=5000 && y<=30000){
+        nemegdel = (y * percent_15)/100;
+        console.log(`Tаны нэмэгдэл төлбөр ${nemegdel}`);
+    }
+    else if(y > 30000){
+        nemegdel = (y * percent_20)/100;
+        console.log(`Tаны нэмэгдэл төлбөр ${nemegdel}`);
+    
+    }
+    else{
+        console.log(`Таны нэмэгдэл төлбөр ${'0'}`);
+    }
+}
+addFee(350000); 
+
+    </script>
+</body>
+</html>

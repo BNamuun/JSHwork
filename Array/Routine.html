@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routine</title>
+</head>
+<body>
+    <script>
+     // Routine
+        let activities = [['Aжил', 10], ['Идэх', 1], ['Ярилцах', 2], ['Тоглох', 3], ['Унтах', 3]]
+        console.table(activities);
+        let x = [];
+        let percent = 0;
+        for(i =0; i < activities.length; i++){
+            // x[i] = activities[i][1];
+            x[i] = Math.floor((activities[i][1]*100)/24);  
+            // console.log(x[i]);
+            activities[i][2] = x[i] + '%';
+        }
+
+        console.table(activities);
+    </script>
+</body>
+</html>

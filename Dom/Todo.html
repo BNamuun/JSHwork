@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/todo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@1,600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container text-center mt-5 w-50">
+        <h1 class="text-primary mb-3">Todo List App</h1>
+        <p class="dateField">Date : </p>
+        <div class="input-group mb-3">
+            <input type="text"  id="Input" class="form-control border-bottom border-warning border-0 bg-bisque" placeholder="Ажлын жагсаалт нэмэх ....." aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary bg-warning border-warning text-white" type="button" id="button-addon2" onclick="addTaskString()">+ нэмэх</button>
+        </div>
+        <template id="TemplateThing"> 
+            <div class="card mb-3">
+                <div class="input-group">
+                    <div id="card-body-input" class="card-body">
+                      <input class="form-control">
+                    </div>
+                    <button class="btn btn-outline-secondary bg-primary text-white" type="button">Fix  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                      </svg></button>
+                    <button class="btn btn-outline-secondary bg-success text-white" type="button">save <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                        <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                        <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                      </svg></button>
+                    <button class="btn btn-outline-secondary  bg-danger text-white" type="button">Delete <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                      </svg></button>
+                  </div>
+              </div>
+        </template>
+        <!-- afdlka -->
+       
+        <h1> Жагсаалт</h1>
+        <hr>
+        <div class="lists">
+            
+      </div>
+        </div>
+    
+        <script>
+          function addTaskString(){
+            const now = new Date().getTime();
+            let listEl = document.getElementsByClassName('lists')[0]
+           let inputEl = document.getElementById('Input')
+           let inputLi = inputEl.value;
+           inputEl.value = ''
+           
+           const Taskstring = `<div class="card mb-3" id="task${now}">
+          
+              <div class="input-group">
+                  <div class="card-body p-0 pt-1 taskField"> 
+                    ${inputLi} 
+                    </div>
+                    <input class="form-control editing" value = "${inputLi}">
+                    <button class="btn btn-outline-secondary bg-info text-white" type="button" onclick = "Savebtn('task${now}')">Save <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-check" viewBox="0 0 16 16">
+                      <path d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+                      <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    </svg></button>
+                    <button class="btn btn-outline-secondary bg-primary text-white" type="button" onclick = "Editbtn('task${now}')">Edit  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                      <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                    </svg></button>
+                  <button class="btn btn-outline-secondary bg-success text-white" type="button" onclick = "doneTask('task${now}')">done <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clipboard-check" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                      <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+                      <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+                    </svg></button>
+                  <button class="btn btn-outline-secondary  bg-danger text-white" type="button" onclick = "removeTask('task${now}')">Delete <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                      <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg></button>
+                </div>
+            </div>`;
+            listEl.innerHTML = Taskstring + listEl.innerHTML;
+           
+          }
+           function removeTask(ids) {
+            if(confirm('Delete?')){
+              const deltask = document.getElementById(ids);
+              deltask.remove();
+            }
+           }
+
+
+           function doneTask(id){
+            const doneEl = document.getElementById(id);
+            if(doneEl.classList.contains('done')){
+              doneEl.classList.remove('done');
+            } 
+            else{
+              let bb = doneEl.classList.add('done');
+            } 
+           }
+
+          let dateField = document.getElementsByClassName('dateField')[0]
+          const date = new Date();
+            const [month, day, year] = [
+              date.getMonth(),
+              date.getDate(),
+              date.getFullYear(),
+            ];
+          // console.log(dateField.innerHTML + ' ' + d.getFullYear);
+          dateField.innerHTML = dateField.innerHTML + ' ' + year + '-' + month + '-' + day
+
+          //  function Editbtn(id){
+          //   alert('ajsd;lf')
+          //  }
+
+          function Editbtn(id){
+            let nom = document.getElementById(id);
+            let set = nom.getElementsByClassName('editing')[0]
+            let nk = set.style.display = 'block'
+            set.style.backgroundColor = '#C0DEFF'
+            // let addEdit = document.getElementById(id).classList.add('editing')
+            let editClass = nom.getElementsByClassName('card-body')[0];
+            editClass.style.display = 'none'
+           }
+           function Savebtn(id){
+            // let changeVal = document.getElementById(id);
+            let targetField = document.querySelector(`#${id} input`);
+            let cardbodyEl = document.querySelector('#' + id + ' .taskField')
+            // console.log(targetField.value);   
+            // console.log(cardbodyEl.innerHTML);
+            targetField.style.display = 'none'
+            cardbodyEl.style.display = 'block'
+            cardbodyEl.innerHTML = targetField.value;
+            document.getElementById(id).classList.remove('editing');
+        
+            // console.log(targetField);                                                                                                                                                                                                                                                                        
+           }
+          //  function EditTask(ids){
+          //   const editEl = document.getElementById(ids);
+          //   let editClass = editEl.getElementsByClassName('card-body')[0];
+          //   let editClassEl = editClass.innerHTML;
+          //  }
+
+           // edit button
+           
+           
+
+
+
+            // function Addlist(){
+            //     let inputEl = document.getElementById('Input')
+            //     let inputLi = inputEl.value;
+            //     inputEl.value = ''
+            //     const Newdiv = document.getElementById('TemplateThing').content.cloneNode(true);
+            //     let inputCard = Newdiv.getElementsByClassName('card-body');
+            //     inputCard.innerHTML = inputLi;
+            //     let listEl = document.getElementsByClassName('lists')[0]
+            //     let newDiv1 = listEl.appendChild(Newdiv);
+             
+
+            // }
+
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
